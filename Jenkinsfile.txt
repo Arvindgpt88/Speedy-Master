@@ -3,12 +3,14 @@ pipeline {
              stages{
                   stage('ONe'){
 	              step{
-                        echo "Hey there how are you"
+                  echo "Hey there how are you"
+
                            }
                          }
                   stage('Two'){
                       step{
                         echo "iam doing great"
+
                           }
                          }
                    }
