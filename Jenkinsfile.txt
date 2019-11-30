@@ -4,11 +4,13 @@ pipeline {
                   stage('ONe'){
 	              step{
                         echo "Hill"
+
                            }
                          }
                   stage('Two'){
                       step{
-                        echo "hello"
+                        echo "iam doing great"
+
                           }
                          }
                    }
