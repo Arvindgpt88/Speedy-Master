@@ -1,4 +1,0 @@
-time
-date
-year
-birth
