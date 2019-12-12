@@ -15,3 +15,4 @@ node {
 	   sh "${mvnhome}/bin/mvn clean test"
    }  
    
+}
