@@ -13,5 +13,8 @@ node {
    // Build using maven
 	   bat "${mvnhome}/bin/mvn clean test"
    }  
-   
+	
+   stage('Mvn compile package'){
+		bat "${mvnhome}/bin/mvn compile package"
+   }	
 }
