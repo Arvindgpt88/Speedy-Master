@@ -11,7 +11,7 @@ node {
        
    stage('Mvn clean test'){
    // Build using maven
-	   sh "${mvnhome}/bin/mvn clean test"
+	   bat "${mvnhome}/bin/mvn clean test"
    }  
    
 }
