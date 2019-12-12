@@ -10,8 +10,8 @@ node {
    
    }
        
-   stage('Mvn clean package'){
+   stage('Mvn clean test'){
    // Build using maven
-	   sh "${mvnhome}/bin/mvn clean package"
+	   sh "${mvnhome}/bin/mvn clean test"
    }  
    
