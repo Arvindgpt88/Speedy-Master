@@ -3,7 +3,7 @@ node {
    // This is to demo github action	
     def mvnhome = tool name: 'Maven', type: 'maven'
     stage('SCM Checkout'){
-       git branch: pipeline, url: 'https://github.com/Arvindgpt88/Master.git'
+       git branch: 'pipeline', url: 'https://github.com/Arvindgpt88/Master.git'
    }
        
    stage('Mvn clean test'){
