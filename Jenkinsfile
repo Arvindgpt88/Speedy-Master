@@ -1,10 +1,10 @@
-
+properties([parameters([choice(choices: ['master', 'pipeline'], name: 'Branch')])])
 node {
    // This is to demo github action	
     def mvnhome = tool name: 'Maven', type: 'maven'
     stage('SCM Checkout'){
     // Clone repo
-	git branch: 'master', 
+	    git branch: '${params.Branch}', 
 	url: 'https://github.com/Arvindgpt88/Master.git'
    
    }
