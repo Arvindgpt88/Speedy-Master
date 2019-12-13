@@ -2,9 +2,9 @@
 node {
    // This is to demo github action	
     def mvnhome = tool name: 'Maven', type: 'maven'
+    properties([parameters([choice(choices: master\n pipeline, description: '', name: 'Branch')])])
     stage('SCM Checkout'){
-    // Clone repo
-	    checkout([$class: 'GitSCM',branches: [[name: '*/pipeline']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Arvindgpt88/Master.git']]])
+       
    }
        
    stage('Mvn clean test'){
