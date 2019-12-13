@@ -4,9 +4,7 @@ node {
     def mvnhome = tool name: 'Maven', type: 'maven'
     stage('SCM Checkout'){
     // Clone repo
-	git branch: 'pipeline', 
-	url: 'https://github.com/Arvindgpt88/Master.git'
-   
+	    checkout([$class: 'GitSCM', branches: [[name: '*/master'], [name: '*/pipeline']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Arvindgpt88/Master.git']]])
    }
        
    stage('Mvn clean test'){
