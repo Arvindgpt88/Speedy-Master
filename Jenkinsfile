@@ -2,7 +2,7 @@
 node {
    // This is to demo github action	
     def mvnhome = tool name: 'Maven', type: 'maven'
-    properties([parameters([choice(choices: ['master', 'pipeline'], name: 'Branch')])])
+    properties([parameters([choice(choices: master, pipeline, name: 'Branch')])])
     stage('SCM Checkout'){
        git branch: '${params.Branch}', url: 'https://github.com/Arvindgpt88/Master.git'
    }
