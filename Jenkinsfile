@@ -4,7 +4,7 @@ node {
     def mvnhome = tool name: 'Maven', type: 'maven'
     stage('SCM Checkout'){
     // Clone repo
-	git branch: 'pipeline', 
+	git branch: 'master', 
 	url: 'https://github.com/Arvindgpt88/Master.git'
    
    }
