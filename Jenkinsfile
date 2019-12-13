@@ -1,4 +1,4 @@
-properties([parameters([choice(choices: ['master', 'pipeline'], name: 'Branch')])])
+properties([parameters([choice(choices: master\npipeline, name: 'Branch')])])
 node {
    // This is to demo github action	
     def mvnhome = tool name: 'Maven', type: 'maven'
