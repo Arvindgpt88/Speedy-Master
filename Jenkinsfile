@@ -10,14 +10,14 @@ node {
    }
        
    stage('Build Image'){
-	   def app = docker.build("arvindgpt88/dockerimage")
-	   bat "${app}"
+	   bat "docker build . -t arvindgpt88/dockerimage"
+	   
    }  
 	
    stage('Test Image'){
-	   app.inside{
+	  
            echo ('Test passed')	
-	   }
+	   
    }
    stage('Push Image'){
 	   
