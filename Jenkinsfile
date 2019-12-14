@@ -13,7 +13,7 @@ node {
        
    stage('Build Image'){
 	   
-	   bat "${DOCKER_TOOLBOX_INSTALL_PATH} create hello-world"
+	   $docker run hello-world"
 	  
 	   
    }  
