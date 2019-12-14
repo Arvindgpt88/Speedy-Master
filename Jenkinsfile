@@ -10,7 +10,8 @@ node {
    }
        
    stage('Build Image'){
-	   bat "Docker Toolbox build . -t arvindgpt88/dockerimage"
+	   def docker = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+	   bat "${docker} build . -t arvindgpt88/dockerimage"
 	   
    }  
 	
