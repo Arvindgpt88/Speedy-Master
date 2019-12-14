@@ -13,7 +13,7 @@ node {
    }
        
    stage('Build Image'){
-	   sh script: 'app = docker.build("arvindgpt88/busybox")'
+	   bat 'sh app = docker.build("arvindgpt88/busybox")'
 	  
 	   
    }  
