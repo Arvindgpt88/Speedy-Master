@@ -17,6 +17,7 @@ node {
 	   app.inside{
            echo ('Test passed')	
 	   }
+   }
    stage('Push Image'){
 	   
 	   docker.withRegistry('https://registry.hub.docker.com', 'docker-hub'){
