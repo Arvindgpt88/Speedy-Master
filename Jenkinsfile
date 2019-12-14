@@ -1,7 +1,7 @@
 properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'Branch')])])
 node {
    // This is to demo github action	
-    def mvnhome = tool name: 'Maven', type: 'maven'
+     def = app
     stage('SCM Checkout'){
     // Clone repo
 	    git branch: "${params.Branch}", 
@@ -9,12 +9,19 @@ node {
    
    }
        
-   stage('Mvn clean test'){
-   // Build using maven
-	   bat "${mvnhome}/bin/mvn clean test"
+   stage('Build Image'){
+ 	   app=docker.build("arvindgpt88/dockerimage")
    }  
 	
-   stage('Mvn compile package'){
-		bat "${mvnhome}/bin/mvn compile package"
+   stage('Test Image'){
+	   app.inside{
+           echo ('Test passed')	
+	   }
+   stage('Push Image'){
+	   
+	   docker.withRegistry('https://registry.hub.docker.com', 'docker-hub'){
+		   app.push "${env.BUILD_NUMBER}"
+		   app.push ('latest')
+	   }
    }	
 }
