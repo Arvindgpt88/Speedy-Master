@@ -13,7 +13,7 @@ node {
        
    stage('Build Image'){
 	   
-	   Docker build . arvindgpt88/busybox
+	  bat Docker build . arvindgpt88/busybox
 	   
    }  
 	
