@@ -10,8 +10,8 @@ node {
    }
        
    stage('Build Image'){
-	   tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
-	   bat 'Docker run busybox'
+	   def doc = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+	   bat "${doc} run busybox"
 	   
    }  
 	
