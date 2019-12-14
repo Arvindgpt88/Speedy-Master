@@ -1,4 +1,5 @@
 properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'Branch')])])
+def doc = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
 node {
    // This is to demo github action	
     
@@ -10,8 +11,8 @@ node {
    }
        
    stage('Build Image'){
-	   def doc = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
-	   bat "${doc} run busybox"
+	   
+	   bat "${doc} build ."
 	   
    }  
 	
