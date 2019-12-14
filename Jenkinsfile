@@ -1,8 +1,7 @@
 properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'Branch')])])
 
 node {
-   // This is to demo github action	
-    def app	
+   // This is to demo github action		
     tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
     
     stage('SCM Checkout'){
@@ -13,7 +12,7 @@ node {
    }
        
    stage('Build Image'){
-	   bat 'app = docker.build("arvindgpt88/busybox")'
+	   bat 'docker build . arvindgpt88/busy'
 	  
 	   
    }  
