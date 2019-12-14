@@ -2,7 +2,7 @@ properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'B
 
 node {
    // This is to demo github action	
-    def doc = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+    tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
     
     stage('SCM Checkout'){
     // Clone repo
@@ -13,7 +13,7 @@ node {
        
    stage('Build Image'){
 	   
-	   bat "${doc} build ."
+	   Docker build . arvindgpt88/busybox
 	   
    }  
 	
