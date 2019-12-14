@@ -10,8 +10,8 @@ node {
    }
        
    stage('Build Image'){
-	   def doc = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
-	   bat "${doc} buildx build .  arvindgpt88/dockerimage"
+	   tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+	   bat 'docker run busybox'
 	   
    }  
 	
