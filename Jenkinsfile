@@ -15,7 +15,7 @@ node {
    stage('Mvn compile package'){
 		bat "${mvnhome}/bin/mvn compile package"
    }	   
-   stage('Mvn install'){
-		bat "${mvnhome}/bin/mvn install" 
+   stage('Mvn deploy'){
+		bat "${mvnhome}/bin/mvn deploy" 
    }	
 }
