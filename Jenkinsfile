@@ -13,7 +13,7 @@ node {
        
    stage('Build Image'){
 	   
-	  Docker run busybox
+	 bat "Docker run busybox"
 	   
    }  
 	
