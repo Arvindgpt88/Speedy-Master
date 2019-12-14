@@ -1,7 +1,7 @@
 properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'Branch')])])
 node {
    // This is to demo github action	
-     def = app
+    
     stage('SCM Checkout'){
     // Clone repo
 	    git branch: "${params.Branch}", 
@@ -10,7 +10,7 @@ node {
    }
        
    stage('Build Image'){
- 	   app=docker.build("arvindgpt88/dockerimage")
+ 	   def app=docker.build("arvindgpt88/dockerimage")
    }  
 	
    stage('Test Image'){
