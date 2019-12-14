@@ -13,7 +13,7 @@ node {
        
    stage('Build Image'){
 	   
-	   $docker run hello-world"
+	   docker.build("arvindgpt88/busybox")
 	  
 	   
    }  
