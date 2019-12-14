@@ -10,7 +10,7 @@ node {
    }
        
    stage('Build Image'){
-	   bat "docker build . -t arvindgpt88/dockerimage"
+	   bat "Docker Toolbox build . -t arvindgpt88/dockerimage"
 	   
    }  
 	
