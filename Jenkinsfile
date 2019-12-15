@@ -17,14 +17,14 @@ node{
  }
  
  stage('Build Docker Imager'){
-	  "${BASH_SH} docker build -t arvindgpt88/myweb:0.0.1 ."
+	  "${BASH_SH} docker build -t arvindgpt88/myweb:0.0.7 ."
  }
  stage('Push to Docker Hub'){
  
 	 withCredentials([usernamePassword(credentialsId: 'Docker-hub', passwordVariable: 'passwd', usernameVariable: 'user')]) {
 		 "${BASH_SH} docker login -u arvindgpt88 -p ${passwd}"
      }
-	 "${BASH_SH} docker push arvindgpt88/myweb:0.0.1"
+	 "${BASH_SH} docker push arvindgpt88/myweb:0.0.7"
  }
 }
 
