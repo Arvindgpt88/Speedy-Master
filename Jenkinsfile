@@ -1,23 +1,21 @@
 properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'Branch')])])
 
 node{
- stage('Git Checkout'){
-	git 'https://github.com/javahometech/my-app'  
+	
+ def mvnhome = tool name: 'Maven', type: 'maven'
+    stage('SCM Checkout'){
+    // Clone repo
+	    git branch: "${params.Branch}", 
+	url: 'https://github.com/Arvindgpt88/Master.git' 
  }
- stage('Maven Package'){
-	sh 'mvn clean package'
-	sh 'mv target/myweb*.war target/myweb.war'
+	
+ stage('Maven Clean Package'){
+	 bat "${mvnhome}/bin/mvn clean package"
+	bat "mv target/myweb*.war target/myweb.war"
  }
  
  stage('Build Docker Imager'){
-   sh 'docker build -t kammana/myweb:0.0.1 .'
+   bat "docker build -t kammana/myweb:0.0.1 ."
  }
- 
- stage('Push to Docker Hub'){
- 
-	 withCredentials([string(credentialsId: 'github-pwd', variable: 'dockerHubPwd')]) {
-        sh "docker login -u kammana -p ${dockerHubPwd}"
-     }
-	 sh 'docker push kammana/myweb:0.0.1'
- }
+}
 
