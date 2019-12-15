@@ -20,7 +20,7 @@ node{
  }
  stage('Push to Docker Hub'){
  
-	 withCredentials([string(credentialsId: '', variable: 'password')]) {
+	 withCredentials([string(credentialsId: 'arvindgpt88' , variable: 'password')]) {
 		 "${BASH_SH} docker login -u arvindgpt88 -p ${password}"
      }
 	 "${BASH_SH} docker push kammana/myweb:0.0.1"
