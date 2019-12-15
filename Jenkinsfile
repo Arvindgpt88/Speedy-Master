@@ -4,7 +4,7 @@ pipeline {
 	agent {
    // This is to demo github action		
     tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
-    
+	Stages {
     stage('SCM Checkout'){
         steps {
 	    git branch: "${params.Branch}", 
@@ -23,4 +23,4 @@ pipeline {
         }
     }
 }
-
+}
