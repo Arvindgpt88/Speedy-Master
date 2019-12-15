@@ -3,6 +3,7 @@ properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'B
 node{
 	
  def mvnhome = tool name: 'Maven', type: 'maven'
+ def dochome = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
     stage('SCM Checkout'){
     // Clone repo
 	    git branch: "${params.Branch}", 
@@ -15,7 +16,7 @@ node{
  }
  
  stage('Build Docker Imager'){
-   bat "docker build -t kammana/myweb:0.0.1 ."
+	 bat "${dochome}/docker build -t kammana/myweb:0.0.1 ."
  }
 }
 
