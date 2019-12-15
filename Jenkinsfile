@@ -1,7 +1,7 @@
 properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'Branch')])])
 
 pipeline {
-	agent dockerfile
+	agent any
    // This is to demo github action		
     tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
 	Stages {
