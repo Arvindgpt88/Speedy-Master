@@ -11,7 +11,7 @@ node{
 	
  stage('Maven Clean Package'){
 	 bat "${mvnhome}/bin/mvn clean package"
-	bat 'mv target/myweb*.war target/myweb.war'
+	
  }
  
  stage('Build Docker Imager'){
