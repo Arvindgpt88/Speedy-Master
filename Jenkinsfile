@@ -12,6 +12,7 @@ node{
 	
  stage('Maven Clean Package'){
 	 bat "${mvnhome}/bin/mvn clean package"
+	 "${BASH_SH} mv target/myweb*.war target/myweb.war"
 	
  }
  
