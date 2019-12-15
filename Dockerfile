@@ -1,3 +1,2 @@
-FROM busybox
-COPY ./my-static-binary /my-static-binary
-CMD ["/my-static-binary"]
+FROM node:7-alpine
+RUN apk add -U subversion
