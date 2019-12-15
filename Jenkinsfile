@@ -1,32 +1,26 @@
 properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'Branch')])])
 
-node {
+pipeline {
+	agent {
    // This is to demo github action		
     tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
     
     stage('SCM Checkout'){
-    // Clone repo
+        steps {
 	    git branch: "${params.Branch}", 
 	url: 'https://github.com/Arvindgpt88/Master.git'
-   
-   }
-       
-   stage('Build Image'){
-	   bat 'docker build . arvindgpt88/busy'
-	  
-	   
-   }  
-	
-   stage('Test Image'){
-	  
-           echo ('Test passed')	
-	   
-   }
-   stage('Push Image'){
-	   
-	   docker.withRegistry('https://registry.hub.docker.com', 'docker-hub'){
-		   app.push "${env.BUILD_NUMBER}"
-		   app.push ('latest')
-	   }
-   }	
+    }
+    }
+    stage('Docker build image'){
+	steps{
+        docker { image 'node:7-alpine' }
+    }
+    }
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
 }
+
