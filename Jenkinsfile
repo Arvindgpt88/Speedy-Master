@@ -1,9 +1,8 @@
 properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'Branch')])])
 
 pipeline {
-	agent any
- 		
-   	Stages {
+   agent {dockerfile true}
+ 	Stages {
               stage('SCM Checkout'){
                 steps {
 	         git branch: "${params.Branch}", 
