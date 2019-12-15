@@ -18,5 +18,12 @@ node{
  stage('Build Docker Imager'){
 	  "${BASH_SH} docker build -t kammana/myweb:0.0.1 ."
  }
+ stage('Push to Docker Hub'){
+ 
+	 withCredentials([string(credentialsId: '', variable: 'password')]) {
+		 "${BASH_SH} docker login -u arvindgpt88 -p ${password}"
+     }
+	 "${BASH_SH} docker push kammana/myweb:0.0.1"
+ }
 }
 
