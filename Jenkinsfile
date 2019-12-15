@@ -16,7 +16,7 @@ node{
  }
  
  stage('Build Docker Imager'){
-	 bat "${dochome}/docker build -t kammana/myweb:0.0.1 ."
+	  "${BASH_SH} docker build -t kammana/myweb:0.0.1 ."
  }
 }
 
