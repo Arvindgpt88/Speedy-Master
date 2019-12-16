@@ -15,7 +15,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        dockerCmd 'build --tag ('getintodevops/hellonode')'
+	     dockerCmd 'build --tag {"getintodevops/hellonode"}'
     }
      
     stage('Push to Docker Hub'){
