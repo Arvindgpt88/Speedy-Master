@@ -30,4 +30,5 @@ node {
    }
 def dockerCmd(args) {
     sh "sudo ${DOCKER}/docker ${args}"
+}
 
