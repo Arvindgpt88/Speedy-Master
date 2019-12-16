@@ -1,23 +1,37 @@
-properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'Branch')])])
+properties([parameters([choice(choices: 'master\npipeline\nnew-branch\ntest', name: 'Branch')])])
 
-pipeline {
+node {
 	
-	agent 
- def dochome = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+    def app
+    def dochome = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
     stage('SCM Checkout'){
     // Clone repo
 	    git branch: "${params.Branch}", 
 	url: 'https://github.com/Arvindgpt88/Master.git' 
- }
+    }
 	
-    stage('Build Docker Image'){
-	  "${BASH_SH} docker build -t arvindgpt88/hello-docker-app.jar ."
- }
- stage('Push to Docker Hub'){
+    stage('Build image') {
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
+
+        app = docker.build("getintodevops/hellonode")
+    }
+
+    stage('Test image') {
+        /* Ideally, we would run a test framework against our image.
+         * For this example, we're using a Volkswagen-type approach ;-) */
+
+        app.inside {
+            sh 'echo "Tests passed"'
+        }
+    }
  
-	 withCredentials([usernamePassword(credentialsId: 'Docker-hub', passwordVariable: 'passwd', usernameVariable: 'user')]) {
-		 "${BASH_SH} docker login -u arvindgpt88 -p ${passwd}"
+ stage('Push to Docker Hub'){
+           withDockerRegistry(credentialsId: 'docker-ID', toolName: 'Docker', url: 'https://hub.docker.com/') {
+         app.push("${env.BUILD_NUMBER}")
+         app.push("latest")
+         }
      }
-	 "${BASH_SH} docker push arvindgpt88/hello-docker-app.jar"
- }
-}
+	 
+   }
+
