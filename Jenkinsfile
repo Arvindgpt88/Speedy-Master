@@ -20,8 +20,8 @@ node {
     stage('Push to Docker Hub'){
            withCredentials([usernamePassword(credentialsId: 'Docker-hub', passwordVariable: 'passwd', usernameVariable: 'user')]) {
 		 "${BASH_SH} docker login -u arvindgpt88 -p ${passwd}" {
-         app.push("${env.BUILD_NUMBER}")
-         app.push("latest")
+			 "${BASH_SH} docker push("${env.BUILD_NUMBER}")"
+			 "${BASH_SH} docker push("latest")"
          }
          }
     }
