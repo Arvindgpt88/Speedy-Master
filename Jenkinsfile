@@ -15,7 +15,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-	     bat dockerCmd build --tag {"getintodevops/hellonode"}
+	     dockerCmd build --tag {"getintodevops/hellonode"}
     }
      
     stage('Push to Docker Hub'){
@@ -29,6 +29,6 @@ node {
    }
    }
 def dockerCmd(args) {
-    sh "sudo ${DOCKER}/docker ${args}"
+	"${BASH_SH} sudo ${DOCKER}/docker ${args}"
 }
 
