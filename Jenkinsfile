@@ -16,14 +16,8 @@ node {
 
 	    "${BASH_SH} docker build . -t getintodevops/hellonode"
     }
-
-    stage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
-        
-    }
- 
- stage('Push to Docker Hub'){
+     
+    stage('Push to Docker Hub'){
            withCredentials([usernamePassword(credentialsId: 'Docker-hub', passwordVariable: 'passwd', usernameVariable: 'user')]) {
 		 "${BASH_SH} docker login -u arvindgpt88 -p ${passwd}" {
          app.push("${env.BUILD_NUMBER}")
