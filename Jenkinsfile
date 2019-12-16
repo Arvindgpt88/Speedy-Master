@@ -6,8 +6,8 @@ properties([parameters([choice(choices: 'master\npipeline\nnew-branch\ntest', na
 
 node {
 	
-    def dockertoolbox = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
-    withEnv(["DOCKER=${dockerTool}/bin"])
+    def dockertool= tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+    withEnv(["DOCKER=${dockertool}/bin"])
    
     stage('SCM Checkout'){
     // Clone repo
