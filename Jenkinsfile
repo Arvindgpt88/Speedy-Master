@@ -13,7 +13,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-	    "${BASH_SH} docker.build("getintodevops/hellonode")"
+	    "${BASH_SH} docker build . -t getintodevops/hellonode
     }
 
     stage('Test image') {
