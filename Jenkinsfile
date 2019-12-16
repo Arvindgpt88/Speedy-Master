@@ -2,6 +2,7 @@ properties([parameters([choice(choices: 'master\npipeline\nnew-branch\ntest', na
 
 node {
 	
+    def dochome = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
     def app
     stage('SCM Checkout'){
     // Clone repo
