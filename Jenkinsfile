@@ -29,6 +29,6 @@ node {
    }
    }
 def dockerCmd(args) {
-	"${BASH_SH} sudo ${DOCKER}/docker ${args}"
+	bat "sudo ${DOCKER}/docker ${args}"
 }
 
