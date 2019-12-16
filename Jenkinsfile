@@ -4,7 +4,6 @@ node {
 	
     def dockertoolbox = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
     withEnv(["DOCKER=${dockerTool}/bin"])
-    def app
     def dockerCmd(args) {
     sh "sudo ${DOCKER}/docker ${args}"
     }
@@ -18,14 +17,14 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("getintodevops/hellonode")
+        dockerCmd 'build --tag getintodevops/hellonode:SNAPSHOT .'
     }
      
     stage('Push to Docker Hub'){
            withCredentials([usernamePassword(credentialsId: 'Docker-hub', passwordVariable: 'passwd', usernameVariable: 'user')]) {
 		   sh docker login -u arvindgpt88 -p ${passwd} {
-			 app.push("${env.BUILD_NUMBER}"
-			 app.push("latest")
+			 docmerCmd push "${env.BUILD_NUMBER}"
+			 dockerCmd push ("latest")
          }
 	 }
     }
