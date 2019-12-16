@@ -1,5 +1,12 @@
-FROM openjdk:8-jdk-alpine
-VOLUME /tmp
-ADD target/hello-docker-0.0.1-SNAPSHOT.jar hello-docker-app.jar
-ENV JAVA_OPTS=""
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /hello-docker-app.jar" ]
+FROM node:7-onbuild
+
+# set maintainer
+LABEL maintainer "miiro@getintodevops.com"
+
+# set a health check
+HEALTHCHECK --interval=5s \
+            --timeout=5s \
+            CMD curl -f http://127.0.0.1:8000 || exit 1
+
+# tell docker what port to expose
+EXPOSE 8000
