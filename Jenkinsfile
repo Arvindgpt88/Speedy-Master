@@ -2,7 +2,7 @@ properties([parameters([choice(choices: 'master\npipeline\nnew-branch\ntest', na
 
 node {
 	
-    def app
+    def app = docker.build("getintodevops/hellonode")
     def dochome = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
     stage('SCM Checkout'){
     // Clone repo
@@ -14,7 +14,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("getintodevops/hellonode")
+	    bat "${app}"
     }
 
     stage('Test image') {
