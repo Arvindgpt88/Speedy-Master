@@ -1,9 +1,5 @@
 properties([parameters([choice(choices: 'master\npipeline\nnew-branch\ntest', name: 'Branch')])])
 
- def dockerCmd(args) {
-    sh "sudo ${DOCKER}/docker ${args}"
-    }
-
 node {
 	
     def dockertool= tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
@@ -19,7 +15,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        dockerCmd 'build --tag getintodevops/hellonode:SNAPSHOT .'
+        dockerCmd 'build --tag getintodevops/hellonode:1 .'
     }
      
     stage('Push to Docker Hub'){
