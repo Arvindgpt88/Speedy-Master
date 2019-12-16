@@ -3,8 +3,11 @@ properties([parameters([choice(choices: 'master\npipeline\nnew-branch\ntest', na
 node {
 	
     def dockertoolbox = tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
-	withEnv(["DOCKER=${dockerTool}/bin"])
+    withEnv(["DOCKER=${dockerTool}/bin"])
     def app
+    def dockerCmd(args) {
+    sh "sudo ${DOCKER}/docker ${args}"
+    }
     stage('SCM Checkout'){
     // Clone repo
 	    git branch: "${params.Branch}", 
