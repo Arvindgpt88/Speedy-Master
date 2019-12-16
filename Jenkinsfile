@@ -24,7 +24,7 @@ node {
      
     stage('Push to Docker Hub'){
            withCredentials([usernamePassword(credentialsId: 'Docker-hub', passwordVariable: 'passwd', usernameVariable: 'user')]) {
-		   sh docker login -u arvindgpt88 -p ${passwd} {
+		   dockerCmd docker login -u arvindgpt88 -p ${passwd} {
 			 docmerCmd push "${env.BUILD_NUMBER}"
 			 dockerCmd push ("latest")
          }
