@@ -16,7 +16,7 @@ node{
  }
  
  stage('Build Docker Imager'){
-	  bat docker build -t arvindgpt88/myweb:0.0.7 .
+	 bat "${BASH} docker build -t arvindgpt88/myweb:0.0.7 ."
  }
  stage('Push to Docker Hub'){
  
