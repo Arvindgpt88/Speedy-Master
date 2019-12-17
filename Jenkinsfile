@@ -12,12 +12,11 @@ node{
 	
  stage('Maven Clean Package'){
 	 bat "${mvnhome}/bin/mvn clean package"
-	 "${BASH_SH} mv target/myweb*.war target/myweb.war"
 	
  }
  
  stage('Build Docker Imager'){
-	  "${BASH_SH} docker build -t arvindgpt88/myweb:0.0.7 ."
+	  "${BASH} docker build -t arvindgpt88/myweb:0.0.7 ."
  }
  stage('Push to Docker Hub'){
  
