@@ -3,7 +3,7 @@ properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'B
 node{
 	
        def mvnhome = tool name: 'Maven', type: 'maven'
-       tool name: 'Docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+       tool name: 'DOCKER_TOOLBOX_INSTALL_PATH', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
     stage('SCM Checkout'){
     // Clone repo
 	    git branch: "${params.Branch}", 
