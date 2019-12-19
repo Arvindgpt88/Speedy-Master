@@ -8,13 +8,13 @@ node {
      stage('SCM Checkout'){
     // Clone repo
 	    git url: 'https://github.com/Arvindgpt88/Master.git'
-	    )
-	    
+
+     }    
      stage('Docker Build image') {
         sh 'eval $(docker-machine env default)'  
         app = docker.build("arvindgpt88/docker")
        
-    )    
+     }   
      
     stage('Push to Docker Hub'){
            withCredentials([usernamePassword(credentialsId: 'Docker-hub', passwordVariable: 'passwd', usernameVariable: 'user')]) {
