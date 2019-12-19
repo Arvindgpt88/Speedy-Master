@@ -15,18 +15,5 @@ node {
         app = docker.build("arvindgpt88/docker")
        
      }   
-     
-    stage('Push to Docker Hub'){
-           withCredentials([usernamePassword(credentialsId: 'Docker-hub', passwordVariable: 'passwd', usernameVariable: 'user')]) {
-		   dockerCmd docker login -u arvindgpt88 -p ${passwd} {
-			 docmerCmd push "${env.BUILD_NUMBER}"
-			 dockerCmd push ("latest")
-         }
-	 }
-    }
-   }
-   }
-def dockerCmd(args) {
-	sh "sudo ${DOCKER}/docker ${args}"
 }
 
