@@ -11,7 +11,7 @@ node {
 
      }    
      stage('Docker Build image') {
-	  sh 'eval $(docker-machine env default)
+	  sh 'eval $(docker-machine env default)'
           app = docker.build("arvindgpt88/docker")
        
      }   
