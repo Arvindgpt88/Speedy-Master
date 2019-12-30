@@ -3,7 +3,6 @@ properties([parameters([choice(choices: 'master\npipeline\nnew-branch\ntest', na
 node {
         
     def dockertool= tool name: 'DOCKER_TOOLBOX_INSTALL_PATH', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
-    def app
      
      stage('SCM Checkout'){
     // Clone repo
@@ -11,8 +10,7 @@ node {
 
      }    
      stage('Docker Build image') {
-	     bat "${docker-machine} env default"
-          app = docker.build("arvindgpt88/docker")
+	               bat docker build -t arvindgpt88/docker .
        
      }   
 }
