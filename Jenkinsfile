@@ -10,7 +10,7 @@ node {
 
      }    
      stage('Docker Build image') {
-	    sh docker build . -t arvindgpt88/nodeapp
+	    sh docker build arvindgpt88/nodeapp
        
      }   
 }
