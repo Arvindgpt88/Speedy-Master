@@ -21,6 +21,7 @@ node{
  }
  stage('Push to Docker Hub'){
          withCredentials([usernamePassword(credentialsId: 'new-docker', passwordVariable: 'dockerpass', usernameVariable: 'dockeruser')]) {
+	 docker login -u "dockeruser" -p "dockerpass" docker.io
 	 app.push("dockerman")
       }	 
  }
