@@ -20,7 +20,7 @@ node{
 	 app = docker.build("arvindgpt88/gupta123")
  }
  stage('Push to Docker Hub'){
-         withDockerRegistry(credentialsId: 'Docker-hub', url: 'https://registry.hub.docker.com') {
+         withDockerRegistry(credentialsId: 'new-docker', url: 'https://registry.hub.docker.com') {
 	 app.push("latest")
       }	 
  }
