@@ -17,12 +17,12 @@ node{
  }
  
  stage('Build Docker Imager'){
-	 app = docker.build("arvindgpt88/gupta123:dockerman")
+	 app = docker.build("arvindgpt88/gupta123:man")
  }
  stage('Push to Docker Hub'){
          withCredentials([usernamePassword(credentialsId: 'new-docker', passwordVariable: 'dockerpass', usernameVariable: 'dockeruser')]) {
 	 docker login -u "dockeruser" -p "dockerpass" docker.io
-	 app.push("dockerman")
+	 app.push("man")
       }	 
  }
 	 
