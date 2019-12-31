@@ -1,4 +1,4 @@
-FROM microsoft/iis:latest
+FROM microsoft/iis
 
 COPY wwwroot c:/inetpub/wwwroot
 
