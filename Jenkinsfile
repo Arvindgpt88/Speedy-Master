@@ -21,7 +21,7 @@ node{
  }
  stage('Push to Docker Hub'){
          withDockerRegistry(credentialsId: 'Docker-hub', url: 'https://registry.hub.docker.com') {
-	 app.push("arvindgpt88/microsoft")
+	 app.push("latest")
       }	 
  }
 	 
