@@ -20,7 +20,7 @@ node{
 	 app = docker.build("arvindgpt88/microsoft")
  }
  stage('Push to Docker Hub'){
-         withDockerRegistry(credentialsId: 'Docker-hub', toolName: 'DOCKER_TOOLBOX_INSTALL_PATH', url: 'https://registry.hub.docker.com') {
+         withDockerRegistry(credentialsId: 'Docker-hub', url: 'https://registry.hub.docker.com') {
 	 app.push("arvindgpt88/microsoft")
       }	 
  }
