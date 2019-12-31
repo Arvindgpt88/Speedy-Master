@@ -17,11 +17,12 @@ node{
  }
  
  stage('Build Docker Imager'){
-	 app = docker.build("arvindgpt88/gupta123:worth")
+	 app = docker.build("arvindgpt88/gupta123:wow")
  }
  stage('Push to Docker Hub'){
-         withDockerRegistry(credentialsId: 'new-docker', url: 'https://hub.docker.com') {
-         app.push("arvindgpt88/gupta123:worth")
+         withDockerRegistry(credentialsId: 'new-docker', url: 'https://registry.hub.docker.com') {
+         app.push("${env.BUILD_NUMBER}")
+         app.push("wow")
       }	 
  }
 	 
