@@ -17,7 +17,7 @@ node{
  }
  
  stage('Build Docker Imager'){
-	 app = docker.build("arvindgpt88/myweb:0.0.7")
+	 app = docker.build("arvindgpt88/microsoft")
  }
  stage('Push to Docker Hub'){
          withDockerRegistry(credentialsId: 'Docker-hub', toolName: 'DOCKER_TOOLBOX_INSTALL_PATH', url: 'https://registry.hub.docker.com') {
