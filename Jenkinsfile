@@ -16,14 +16,14 @@ node{
  }
  
  stage('Build Docker Imager'){
-	 bat "docker build -t arvindgpt88/gupta123:release4 ."
+	 bat "docker build -t arvindgpt88/gupta123:snapshot ."
  }
  stage('Push to Docker Hub'){
-         withCredentials([usernamePassword(credentialsId: 'new-docker', passwordVariable: 'PASSWORD', usernameVariable: 'USER')]) {
+         withCredentials([usernamePassword(credentialsId: 'dockeridnew', passwordVariable: 'PASSWORDNEW', usernameVariable: 'USERNEW')]) {
          def registry_url = "https://registry.hub.docker.com/"
-	 bat "docker login -u $USER -p $PASSWORD ${registry_url}"
-	 withDockerRegistry(credentialsId: 'new-docker', url: "${registry_url}") {
-		 bat "docker push arvindgpt88/gupta123:release4"
+	 bat "docker login -u $USERNEW -p $PASSWORDNEW ${registry_url}"
+	 withDockerRegistry(credentialsId: 'dockeridnew', url: "${registry_url}") {
+		 bat "docker push arvindgpt88/gupta123:snapshot"
 	 }
       }	 
  }
