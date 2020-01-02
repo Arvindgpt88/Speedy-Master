@@ -23,7 +23,7 @@ node{
          def registry_url = "https://registry.hub.docker.com/"
 	 bat "docker login -u $USERNEW -p $PASSWORDNEW ${registry_url}"
 	 withDockerRegistry(credentialsId: 'dockeridnew', url: "${registry_url}") {
-		 bat "docker push arvindgpt88/gupta123:snapshot1"
+		 bat "docker push arvindgpt88/cool:snapshot1"
 	 }
       }	 
  }
