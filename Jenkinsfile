@@ -16,11 +16,15 @@ node{
  }
  
  stage('Build Docker Imager'){
-	 bat "docker build -t arvindgpt88/gupta123:release3 ."
+	 bat "docker build -t arvindgpt88/gupta123:release4 ."
  }
  stage('Push to Docker Hub'){
-         withDockerRegistry(credentialsId: 'new-docker', url: 'https://registry.hub.docker.com') {
-         app.push("release3")
+         withCredentials([usernamePassword(credentialsId: 'new-docker', passwordVariable: 'PASSWORD', usernameVariable: 'USER')]) {
+         def registry_url = "https://registry.hub.docker.com/"
+	 bat "docker login -u $USER -p $PASSWORD ${registry_url}"
+	 withDockerRegistry(credentialsId: 'new-docker', url: "${registry_url}") {
+		 bat "docker push arvindgpt88/gupta123:release4"
+	 }
       }	 
  }
 	 
