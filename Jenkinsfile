@@ -17,11 +17,11 @@ node{
  }
  
  stage('Build Docker Imager'){
-	 app = docker.build("arvindgpt88/gupta123:release2")
+	 app = docker.build("arvindgpt88/gupta123:release3")
  }
  stage('Push to Docker Hub'){
          withDockerRegistry(credentialsId: 'new-docker', url: 'https://registry.hub.docker.com') {
-         app.push("arvindgpt88/gupta123:release2")
+         app.push("release3")
       }	 
  }
 	 
