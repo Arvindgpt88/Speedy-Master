@@ -16,7 +16,7 @@ node{
  }
  
  stage('Build Docker Imager'){
-	 bat "docker build -t arvindgpt88/gupta123:release3"
+	 bat "docker build -t ('arvindgpt88/gupta123:release3')"
  }
  stage('Push to Docker Hub'){
          withDockerRegistry(credentialsId: 'new-docker', url: 'https://registry.hub.docker.com') {
