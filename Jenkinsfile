@@ -3,6 +3,7 @@ properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'B
 node{
 	
        def mvnhome = tool name: 'Maven', type: 'maven'
+	def dockerimage
        tool name: 'DOCKER_TOOLBOX_INSTALL_PATH', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
     stage('SCM Checkout'){
     // Clone repo
@@ -16,14 +17,14 @@ node{
  }
  
  stage('Build Docker Imager'){
-	 bat "docker build -t arvindgpt88/cool:snapshot1 ."
+	 dockerimage = docker.build("arvindgpt88/hero:snapshot2")
  }
  stage('Push to Docker Hub'){
          withCredentials([usernamePassword(credentialsId: 'dockeridnew', passwordVariable: 'PASSWORDNEW', usernameVariable: 'USERNEW')]) {
          def registry_url = "https://registry.hub.docker.com/"
 	 bat "docker login -u $USERNEW -p $PASSWORDNEW ${registry_url}"
 	 withDockerRegistry(credentialsId: 'dockeridnew', url: "${registry_url}") {
-		 bat "docker push arvindgpt88/cool:snapshot1"
+		 dockerimage.push()
 	 }
       }	 
  }
