@@ -17,7 +17,7 @@ node{
  }
  
  stage('Build Docker Imager'){
-	 dockerimage = docker.build("arvindgpt88/newer:snapnew")
+	 dockerimage = docker.build("arvindgpt88/gupta123:snapnew")
  }
  stage('Push to Docker Hub'){
          withCredentials([usernamePassword(credentialsId: 'dockeridnew', passwordVariable: 'PASSWORDNEW', usernameVariable: 'USERNEW')]) {
