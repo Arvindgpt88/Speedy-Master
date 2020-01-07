@@ -20,12 +20,12 @@ node{
 	 dockerimage = docker.build("arvindgpt88/gupta123:heyyou")
  }
  stage('Push to Docker Hub'){
-        withDockerRegistry(credentialsId: 'dockeridnew', url: "https://registry.hub.docker.com" {
+        withDockerRegistry(credentialsId: 'dockeridnew', url: "https://registry.hub.docker.com") {
 	   bat "docker push arvindgpt88/gupta123:heyyou"
 	}
       }	 
  
-}	 
+	 
  
 }
 
