@@ -3,7 +3,7 @@ properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'B
 node{
 	
        def mvnhome = tool name: 'Maven', type: 'maven'
-	def dockerimage
+	def dockerImage
        tool name: 'DOCKER_TOOLBOX_INSTALL_PATH', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
     stage('SCM Checkout'){
     // Clone repo
@@ -17,11 +17,11 @@ node{
  }
  
  stage('Build Docker Imager'){
-	 dockerimage = docker.build("arvindgpt88/gupta123:heyyou")
+	 dockerImage = docker.build("arvindgpt88/gupta123:heyitsme")
  }
  stage('Push to Docker Hub'){
         withDockerRegistry(credentialsId: 'dockeridnew', url: "https://registry.hub.docker.com") {
-	   bat "docker push arvindgpt88/gupta123:heyyou"
+	   dockerImage.push("heyitsme")
 	}
       }	 
  
