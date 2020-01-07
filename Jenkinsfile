@@ -23,7 +23,7 @@ node{
          withCredentials([usernamePassword(credentialsId: 'dockeridnew', passwordVariable: 'PASSWORDNEW', usernameVariable: 'USERNEW')]) {
          def registry_url = "https://docker.io/v2/"
 	 bat "docker login -u $USERNEW -p $PASSWORDNEW ${registry_url}"
-	   dockerimage.push("heyyou")
+	   bat "dockerimage.push("heyyou")"
 	
       }	 
  }
