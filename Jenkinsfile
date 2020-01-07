@@ -20,13 +20,11 @@ node{
 	 dockerimage = docker.build("arvindgpt88/gupta123:heyyou")
  }
  stage('Push to Docker Hub'){
-         withCredentials([usernamePassword(credentialsId: 'dockeridnew', passwordVariable: 'PASSWORDNEW', usernameVariable: 'USERNEW')]) {
-         def registry_url = "https://docker.io/v2/"
-	 bat "docker login -u $USERNEW -p $PASSWORDNEW ${registry_url}"
+        withDockerRegistry(credentialsId: 'dockeridnew', url: "https://registry.hub.docker.com" {
 	   bat "docker push arvindgpt88/gupta123:heyyou"
-	
+	}
       }	 
- }
+ 
 	 
  
 }
