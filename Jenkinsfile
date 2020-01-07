@@ -17,11 +17,11 @@ node{
  }
  
  stage('Build Docker Imager'){
-	 dockerImage = docker.build("arvindgpt88/create:letsrock")
+	 dockerImage = docker.build("arvindgpt88/gupta123:letsrockman")
  }
  stage('Push to Docker Hub'){
         withDockerRegistry(credentialsId: 'dockeridnew', url: "https://index.docker.io/v1/") {
-	   dockerImage.push("letsrock")
+	   dockerImage.push("letsrockman")
 	}
       }	 
  
