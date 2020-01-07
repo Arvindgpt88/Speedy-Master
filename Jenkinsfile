@@ -17,14 +17,14 @@ node{
  }
  
  stage('Build Docker Imager'){
-	 dockerimage = docker.build("arvindgpt88/gupta123:snapnew")
+	 dockerimage = docker.pull("arvindgpt88/gupta123:wow")
  }
  stage('Push to Docker Hub'){
          withCredentials([usernamePassword(credentialsId: 'dockeridnew', passwordVariable: 'PASSWORDNEW', usernameVariable: 'USERNEW')]) {
          def registry_url = "https://docker.io/v1/"
 	 bat "docker login -u $USERNEW -p $PASSWORDNEW ${registry_url}"
 	 withDockerRegistry(credentialsId: 'dockeridnew', url: "${registry_url}") {
-	   dockerimage.push()
+	   dockerimage.pull()
 	 }
       }	 
  }
