@@ -22,8 +22,8 @@ node{
  
 stage('kube-deploy'){
 	kubernetesDeploy{
-		configs: 'kubefile.yml',
-		kubeconfigId: 'kubernetes_config',
+		configs: "kubefile.yml",
+		kubeconfigId: "kubernetes_config",
 		dockerCredentials: [[credentialsId: 'testdocker', url: 'https://index.docker.io/v1/']]
         }
       }
