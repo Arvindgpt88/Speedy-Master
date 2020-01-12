@@ -12,11 +12,11 @@ node{
  }
 	
  stage('Build Docker Imager'){
-	 dockerImage = docker.build("arvindgpt88/gupta123:java")
+	 dockerImage = docker.build("arvindgpt88/gupta123:jenkins")
  }
  stage('Push to Docker Hub'){
         withDockerRegistry(credentialsId: 'dockeridnew', url: "https://index.docker.io/v1/") {
-	   dockerImage.push("java")
+	   dockerImage.push("jenkins")
 	}
       }	 
  
