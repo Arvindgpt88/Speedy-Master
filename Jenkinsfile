@@ -21,6 +21,6 @@ node{
       }	 
  
 stage('kube-deploy'){
-	kubernetesDeploy configs: 'Master', dockerCredentials: [[credentialsId: 'testdocker', url: 'https://index.docker.io/v1/']]
+	kubernetesDeploy configs: 'kubefile.yml', dockerCredentials: [[credentialsId: 'testdocker', url: 'https://index.docker.io/v1/']]
  
 }
