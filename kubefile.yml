@@ -14,8 +14,8 @@ spec:
         app: nginx
    spec:     
       containers:
-        - name: nginx
-          image: nginx
+        - name : nginx
+          image : nginx
           ports:
           - containerport: 80
             NodePort: 30080
