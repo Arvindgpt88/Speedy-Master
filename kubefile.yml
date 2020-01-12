@@ -5,7 +5,7 @@ metadata:
  spec:
    container:
      -name: nginx
-      image: nginx:latest
+      image: nginx
       ports:
         -containerport: 80
          NodePort: 30080
