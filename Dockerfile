@@ -1,5 +1,5 @@
-FROM java:8-jre
-
-EXPOSE 9999
-
-CMD ["java", "-jar", "/opt/sparktodo-jar-with-dependencies.jar"]
+FROM microsoft/windows 7
+ADD ./setup d:/jenkins
+RUN Powershell.exe -Command Install-WindowsFeature Web-Server                 
+RUN ["msiexec.exe", "/i", "D:\\jenkins\\jenkins.msi", "/qn"]
+RUN Powershell.exe -Command remove-item c:/jenkins –Recurse
