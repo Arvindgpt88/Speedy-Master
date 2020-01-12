@@ -1,20 +1,25 @@
-properties([parameters([choice(choices: 'master\npipeline', name: 'Branch')])])
-node {
-   // This is to demo github action	
-    def mvnhome = tool name: 'Maven', type: 'maven'
+properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'Branch')])])
+
+node{
+	
+       def mvnhome = tool name: 'Maven', type: 'maven'
+	def dockerImage
+       tool name: 'DOCKER_TOOLBOX_INSTALL_PATH', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
     stage('SCM Checkout'){
     // Clone repo
 	    git branch: "${params.Branch}", 
-	url: 'https://github.com/Arvindgpt88/Master.git'
-   
-   }
-       
-   stage('Mvn clean test'){
-   // Build using maven
-	   bat "${mvnhome}/bin/mvn clean test"
-   }  
+	url: 'https://github.com/Arvindgpt88/Master.git' 
+ }
 	
-   stage('Mvn compile package'){
-		bat "${mvnhome}/bin/mvn compile package"
-   }	
+ stage('Build Docker Imager'){
+	 dockerImage = docker.build("arvindgpt88/create:tomcat")
+ }
+ stage('Push to Docker Hub'){
+        withDockerRegistry(credentialsId: 'dockeridnew', url: "https://index.docker.io/v1/") {
+	   dockerImage.push("tomcat")
+	}
+      }	 
+ 
+	 
+ 
 }
