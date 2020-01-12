@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deploy-java
+  name: deploy-jenkins
   labels:
-    app: java
+    app: jenkins
 spec:
   replicas: 6
   selector:
     matchLabels:
-      app: java
+      app: jenkins
   template:
     metadata:
       labels:
-        app: java
+        app: jenkins
     spec:
       containers:
-      - name: java
-        image: arvindgpt88/gupta123:java
+      - name: jenkins
+        image: arvindgpt88/gupta123:jenkins
         ports:
         - containerPort: 80  
