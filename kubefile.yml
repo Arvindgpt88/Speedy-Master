@@ -1,0 +1,11 @@
+apiversion: apps/v1
+kind: deployment
+metadata:
+ name: nginx-deployment
+ spec:
+   container:
+     -name: nginx
+      image: nginx:latest
+      ports:
+        -containerport: 80
+         NodePort: 30080
