@@ -1,4 +1,4 @@
-properties([parameters([choice(choices: 'master\npipeline\nnew-branch', name: 'Branch')])])
+properties([parameters([choice(choices: 'master\npipeline\nnew-branch\ndocker', name: 'Branch')])])
 
 node{
 	
