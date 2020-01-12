@@ -4,8 +4,8 @@ metadata:
  name: nginx-deployment
 spec:
    containers:
-     -name: nginx
+     - name: nginx
       image: nginx
       ports:
-        -containerport: 80
+        - containerport: 80
          NodePort: 30080
