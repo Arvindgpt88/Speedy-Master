@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: arvindgpt88/gupta123:jenkins
+        image: anand72/nodeapp:latest
         ports:
         - containerPort: 80  
