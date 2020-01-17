@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: deploy-testimage
   labels:
-    app: jenkins
+    app: testimage
 spec:
   replicas: 6
   selector:
@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-        app: jenkins
+        app: testimage
     spec:
       containers:
       - name: testimage
