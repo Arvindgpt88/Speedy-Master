@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deploy-jenkins
+  name: deploy-testimage
   labels:
     app: jenkins
 spec:
   replicas: 6
   selector:
     matchLabels:
-      app: jenkins
+      app: testimage
   template:
     metadata:
       labels:
         app: jenkins
     spec:
       containers:
-      - name: jenkins
-        image: anand72/nodeapp:latest
+      - name: testimage
+        image: nginx
         ports:
         - containerPort: 80  
