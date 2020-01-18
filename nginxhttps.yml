@@ -19,7 +19,7 @@ spec:
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: deploy-nginxhttps
+  name: nginxhttpsdeploy
 spec:
   replicas: 3
   template:
@@ -30,16 +30,10 @@ spec:
      volumes:
       - name: secret-volume
         secret:
-           secretName: nginx-certs-keys
+           secretName: nginx-certs-keyss
      containers:
-      - name: deploy-nginxhttps
+      - name: nginxhttpsdeploy
         image: nginx
         ports:
         - containerPort: 443
         - containerPort: 80
-        livenessProbe:
-          httpGet:
-            path: /index.html
-            port: 80
-          initialDelaySeconds: 30
-          timeoutSeconds: 1
