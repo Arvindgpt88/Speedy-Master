@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: Service
 metadata:
   name: nginxsvc
@@ -16,7 +16,7 @@ spec:
   selector:
     app: nginxhttps
 ---    
-apiVersion: apps/v1
+apiVersion: v1
 kind: ReplicationController
 metadata:
   name: deploy-nginxhttps
