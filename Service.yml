@@ -30,9 +30,11 @@ spec:
       labels:
         app: nginxhttps
     spec:
-      secret:
-        secretName: nginx-certs-keys
-      containers:
+     volumes:
+      - name: secret-volume
+        secret:
+           secretName: nginx-certs-keys
+     containers:
       - name: deploy-nginxhttps
         image: nginx
         ports:
