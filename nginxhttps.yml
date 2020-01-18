@@ -22,9 +22,6 @@ metadata:
   name: deploy-nginxhttps
 spec:
   replicas: 3
-  selector:
-    matchLabels:
-      app: nginxhttps
   template:
     metadata:
       labels:
@@ -40,4 +37,3 @@ spec:
         ports:
         - containerPort: 443
         - containerPort: 80
-     
