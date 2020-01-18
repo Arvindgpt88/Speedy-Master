@@ -17,14 +17,10 @@ spec:
     app: nginxhttps
 ---    
 apiVersion: apps/v1
-kind: ReplicationController
+kind: deployment
 metadata:
   name: deploy-nginxhttps
-  labels:
-    app: nginxhttps
 spec:
-  secret:
-    secretName: nginx-certs-keys
   replicas: 3
   selector:
     matchLabels:
@@ -34,6 +30,8 @@ spec:
       labels:
         app: nginxhttps
     spec:
+      secret:
+        secretName: nginx-certs-keys
       containers:
       - name: deploy-nginxhttps
         image: nginx
