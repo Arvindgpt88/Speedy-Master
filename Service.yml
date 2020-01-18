@@ -17,7 +17,7 @@ spec:
     app: nginxhttps
 ---    
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicationController
 metadata:
   name: deploy-nginxhttps
   labels:
@@ -40,4 +40,4 @@ spec:
         ports:
         - containerPort: 443
         - containerPort: 80
-        - containerPort: 80  
+     
