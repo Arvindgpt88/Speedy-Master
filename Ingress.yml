@@ -6,7 +6,7 @@ metadata:
     app: nginxhttps
 spec:
   type: NodePort
-   ports:
+  ports:
   - port: 80
     protocol: TCP
     name: http
