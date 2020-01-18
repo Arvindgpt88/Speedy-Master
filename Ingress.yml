@@ -21,10 +21,10 @@ kind: Ingress
 metadata:
  name: nginxhttpsvcnew
 spec:
- tls:
+  tls:
    - secretName: nginx-certs-keys
      hosts: 192.168.99.100 
- rules:
+  rules:
    - host: 192.168.99.100
      http:
         paths:
