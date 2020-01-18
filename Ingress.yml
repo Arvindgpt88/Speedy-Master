@@ -26,8 +26,8 @@ spec:
      hosts: 192.168.99.100 
  rules:
    -hosts: 192.168.99.100
-    https:
+    http:
         paths:
           - backend:
                serviceName: nginx
-               servicePort: 443
+               servicePort: 80
