@@ -27,23 +27,13 @@ spec:
       labels:
         app: nginxhttps
     spec:   
+     volumes:
+      - name: secret-volume
+        secret:
+           secretName: nginx-certs-keys
      containers:
       - name: nginxhttpsdeploy
         image: nginx
         ports:
         - containerPort: 443
         - containerPort: 80
----
-apiVersion: v1
-kind: Ingress
-metadata:
- name: nginxhttpsvc
-spec:
- tls:
-   - secretName: nginx-certs-keys  
- rules:
-   - http:
-        paths:
-          - backend:
-               serviceName: nginx
-               servicePort: 80
