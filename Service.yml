@@ -15,3 +15,29 @@ spec:
     name: https
   selector:
     app: nginx
+---    
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-nginxhttps
+  labels:
+    app: nginxhttps
+spec:
+  secret:
+    secretName: nginx-certs-keys
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginxhttps
+  template:
+    metadata:
+      labels:
+        app: nginxhttps
+    spec:
+      containers:
+      - name: deploy-nginxhttps
+        image: nginx
+        ports:
+        - containerPort: 443
+        - containerPort: 80
+        - containerPort: 80  
