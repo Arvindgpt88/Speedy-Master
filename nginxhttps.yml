@@ -17,7 +17,7 @@ spec:
     app: nginxhttps
 ---    
 apiVersion: v1
-kind: deployment
+kind: ReplicationController
 metadata:
   name: deploy-nginxhttps
 spec:
