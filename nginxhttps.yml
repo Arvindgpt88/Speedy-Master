@@ -41,7 +41,7 @@ spec:
         - containerPort: 443
         - containerPort: 80
         volumeMounts:
-        - mountPath: C:\Kube\
+        - mountPath: C:\Kube\tls.crt
           name: secret-volume
-        - mountPath: C:\Kube\
+        - mountPath: C:\Kube\tls.key
           name: configmap-volume
