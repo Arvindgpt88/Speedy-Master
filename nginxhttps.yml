@@ -43,5 +43,5 @@ spec:
         volumeMounts:
         - mountPath: C:\Kube\nginx.crt
           name: secret-volume
-        - mountPath: C:\Kube\nginx.key
+        - mountPath: C:\Kube\default.conf.txt
           name: configmap-volume
