@@ -40,3 +40,8 @@ spec:
         ports:
         - containerPort: 443
         - containerPort: 80
+        volumeMounts:
+        - mountPath: /etc/nginx/ssl
+          name: secret-volume
+        - mountPath: /etc/nginx/conf.d
+          name: configmap-volume
