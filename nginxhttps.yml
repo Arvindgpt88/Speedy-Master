@@ -31,6 +31,9 @@ spec:
       - name: secret-volume
         secret:
            secretName: nginx-certs-keys
+      - name: configmap-volume
+        configMap:
+           name: nginxconfigmap
      containers:
       - name: nginxhttpsdeploy
         image: nginx
