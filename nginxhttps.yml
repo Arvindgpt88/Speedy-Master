@@ -43,5 +43,5 @@ spec:
         volumeMounts:
         - mountPath: C:\Kube\tls.crt
           name: secret-volume
-        - mountPath: C:\Kube\tls.key
+        - mountPath: C:\Kube\default.conf.txt
           name: configmap-volume
