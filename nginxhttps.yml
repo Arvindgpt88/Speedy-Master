@@ -41,7 +41,7 @@ spec:
         - containerPort: 443
         - containerPort: 80
         volumeMounts:
-        - mountPath: /etc/nginx/ssl
+        - mountPath: C:\Kube\
           name: secret-volume
-        - mountPath: /etc/nginx/conf.d
+        - mountPath: C:\Kube\
           name: configmap-volume
