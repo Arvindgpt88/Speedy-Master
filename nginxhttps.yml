@@ -16,8 +16,8 @@ spec:
   selector:
     app: nginxhttps
 ---    
-apiVersion: v1
-kind: ReplicationController
+apiVersion: apps/v1
+kind: deployment
 metadata:
   name: nginxhttpsdeploy
 spec:
