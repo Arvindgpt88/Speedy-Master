@@ -1,22 +1,4 @@
 apiVersion: v1
-kind: Service
-metadata:
-  name: nginxhttpsvcnew
-  labels:
-    app: nginxtohttps
-spec:
-  type: NodePort
-  ports:
-  - port: 80
-    protocol: TCP
-    name: http
-  - port: 443
-    protocol: TCP
-    name: https
-  selector:
-    app: nginxtohttps
----  
-apiVersion: v1
 kind: Ingress
 metadata:
   name: nginxtohttps
@@ -26,13 +8,14 @@ metadata:
     ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   tls:
-    - hosts: 192.168.99.100
+    - hosts:
+      - 192.168.99.100
       secretName: nginx-certs-keys
   rules:
   - host: 192.168.99.100
     http:
       paths:
-      - path: /
+      - path:
         backend:
           serviceName: nginx
           servicePort: 80
