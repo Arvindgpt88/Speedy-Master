@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - 192.168.99.100
+      - example.com
       secretName: nginx-certs-keys
   rules:
-  - host: 192.168.99.100
+  - host: example.com
     http:
       paths:
       - backend:
