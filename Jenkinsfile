@@ -9,7 +9,7 @@ node{
  }
 	
     stage('kube-deploy'){
-	kubernetesDeploy configs: 'Inginxhttps.yml', dockerCredentials: [[credentialsId: 'testdocker', url: 'https://index.docker.io/v1/']], kubeconfigId: 'kubernetes_config'
+	kubernetesDeploy configs: 'nginxhttps.yml', dockerCredentials: [[credentialsId: 'testdocker', url: 'https://index.docker.io/v1/']], kubeconfigId: 'kubernetes_config'
         
       }
 }
