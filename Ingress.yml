@@ -17,7 +17,7 @@ spec:
     app: nginxtohttps
 ---  
 apiVersion: v1
-kind: Ingress
+kind: ReplicationController
 metadata:
   name: nginxtohttps
   annotations:
