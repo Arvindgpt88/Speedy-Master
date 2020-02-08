@@ -1,5 +1,5 @@
 kind: Ingress
-apiVersion: extensions/v1beta1
+apiVersion: v1
 metadata:
   name: nginxtohttps
   namespace: nginx-tutorial # Change this
