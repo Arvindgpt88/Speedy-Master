@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: nginxhttpsvc
   labels:
-    app: nginxhttps
+    app: nginx
 spec:
   type: NodePort
   ports:
@@ -14,7 +14,7 @@ spec:
     protocol: TCP
     name: https
   selector:
-    app: nginxhttps
+    app: nginx
     
 ---
 apiVersion: extensions/v1beta1
